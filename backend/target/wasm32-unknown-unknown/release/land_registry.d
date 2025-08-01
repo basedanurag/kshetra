@@ -1,0 +1,1 @@
+D:\Kshetra\backend\target\wasm32-unknown-unknown\release\land_registry.wasm: D:\Kshetra\backend\src\dip721.rs D:\Kshetra\backend\src\document_storage.rs D:\Kshetra\backend\src\lib.rs D:\Kshetra\backend\src\storage.rs D:\Kshetra\backend\src\types.rs

@@ -1,0 +1,85 @@
+type Coordinates = record {
+    latitude: float64;
+    longitude: float64;
+};
+
+type LandParcelMetadata = record {
+    location: text;
+    size_sq_meters: float64;
+    coordinates: Coordinates;
+    document_hashes: vec text;
+    legal_description: opt text;
+    zoning_type: opt text;
+    assessed_value: opt float64;
+    last_updated: nat64;
+};
+
+type RegistrationStatus = variant {
+    Pending;
+    Registered;
+    Revoked;
+};
+
+type TransactionType = variant {
+    Registration;
+    Transfer;
+    StatusUpdate;
+};
+
+type TransactionRecord = record {
+    transaction_id: text;
+    from_owner: opt principal;
+    to_owner: principal;
+    timestamp: nat64;
+    transaction_type: TransactionType;
+    document_hash: opt text;
+    notes: opt text;
+};
+
+type LandParcel = record {
+    token_id: nat64;
+    owner: principal;
+    metadata: LandParcelMetadata;
+    status: RegistrationStatus;
+    history: vec TransactionRecord;
+};
+
+type UserRole = variant {
+    Admin;
+    LandRegistrar;
+};
+
+type Result = variant {
+    Ok;
+    Err: text;
+};
+
+type Result_1 = variant {
+    Ok: nat64;
+    Err: text;
+};
+
+service : {
+    // DIP721 Standard Interface
+    dip721_name: () -> (text) query;
+    dip721_symbol: () -> (text) query;
+    dip721_logo: () -> (opt text) query;
+    dip721_total_supply: () -> (nat64) query;
+    dip721_balance_of: (principal) -> (nat64) query;
+    dip721_owner_of: (nat64) -> (opt principal) query;
+    dip721_token_metadata: (nat64) -> (opt LandParcelMetadata) query;
+    dip721_supported_interfaces: () -> (vec text) query;
+    dip721_transfer_from: (principal, principal, nat64) -> (Result);
+    dip721_approve: (principal, nat64) -> (Result);
+    dip721_get_approved: (nat64) -> (opt principal) query;
+    
+    // Land Registry Specific Functions
+    register_land_parcel: (text, float64, Coordinates, vec text) -> (Result_1);
+    approve_registration: (nat64) -> (Result);
+    get_land_parcel: (nat64) -> (opt LandParcel) query;
+    get_parcels_by_owner: (principal) -> (vec LandParcel) query;
+    
+    // Role Management
+    assign_role: (principal, UserRole) -> (Result);
+    get_user_roles: (principal) -> (vec UserRole) query;
+}
