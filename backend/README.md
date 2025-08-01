@@ -193,3 +193,6 @@ The architecture supports future enhancements:
 - Smart contract integration for automated transfers
 
 This implementation provides a robust foundation for a decentralized land registry system while maintaining compatibility with the DIP721 NFT standard.
+
+NOTE for FrontEnd devs 
+// tell me if you need anything
