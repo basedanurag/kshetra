@@ -68,7 +68,7 @@ function Navbar({
           transition: 'color 0.18s',
         }}
       >
-        VLR
+        KSHETRA
       </a>
       <div className="navbar-links" style={{ display: 'flex', gap: 'var(--spacing-lg)' }}>
         {[{ label: "Mint Land", view: "mint" }, { label: "Marketplace", view: "market" }, { label: "My Lands", view: "my" }].map(({ label, view }) => (

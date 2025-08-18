@@ -64,7 +64,7 @@ function TiltCard({ children, style = {}, ...props }) {
       style={{
         perspective: 800,
         borderRadius: 20,
-        boxShadow: "0 8px 40px #3b82f655, 0 2px 0 #3b82f6",
+        boxShadow: "0 8px 40px #00000055, 0 2px 0 #ffffffff",
         background: "rgba(24,26,34,0.85)",
         border: "2.5px solid #3b82f6",
         backdropFilter: "blur(8px)",

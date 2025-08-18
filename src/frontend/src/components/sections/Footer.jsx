@@ -75,7 +75,7 @@ function Footer() {
                   marginRight: 10,
                 }}
               >
-                VLR
+              KSH
               </Badge>
               KSHETRA
             </span>
