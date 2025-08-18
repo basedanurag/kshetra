@@ -136,7 +136,7 @@ export default function Landing({ onGetStarted }) {
         className="hero-bg landing-hero bg-parallax"
         ref={heroRef}
         style={{
-          background: 'linear-gradient(120deg, #0a0a0a 70%, #3b82f6 100%)',
+          background: 'linear-gradient(120deg, #0a0a0a 70%, #939dadff 100%)',
           backgroundAttachment: 'fixed',
           backgroundPosition: 'center 0',
           backgroundSize: 'cover',
@@ -158,26 +158,28 @@ export default function Landing({ onGetStarted }) {
               fontWeight: 800,
               fontSize: '4.6rem',
               letterSpacing: '0.05em',
-              background: 'linear-gradient(270deg, #0066FF, #6B46C1, #EC4899)',
+              background: 'linear-gradient(290deg, #ffffff 0%, #cccccc 50%, #000000 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               marginBottom: '1.2rem',
+              textShadow: 'none', // 🚀 remove bluish glow
             }}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            VIRTUAL LAND OWNERSHIP
+            KSHETRA 
+           
           </motion.h1>
           <motion.div
-            style={{ fontFamily: 'Inter, DM Sans, sans-serif', fontSize: '2rem', fontWeight: 500, color: '#A0A0A0', marginBottom: '0.7rem' }}
+            style={{ fontFamily: 'Inter, DM Sans, sans-serif', fontSize: '1rem', fontWeight: 500, color: '#f3f2f2ff', marginBottom: '0.7rem' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            on blockchain
+            on  ICP blockchain
           </motion.div>
           <motion.div
             style={{ fontFamily: 'Inter, DM Sans, sans-serif', fontSize: '1.3rem', color: '#A0A0A0', marginBottom: '2.2rem' }}
@@ -345,8 +347,8 @@ export default function Landing({ onGetStarted }) {
 
       {/* Footer */}
       <footer className="landing-footer">
-        <span>© {new Date().getFullYear()} Virtual Land Registry</span>
-        <span>Built on ICP</span>
+        <span>© {new Date().getFullYear()} KSHETRA  A Virtual Land Registry Project</span>
+        <span>Built on ICP Blockchain</span>
       </footer>
     </div>
   );
