@@ -1,0 +1,41 @@
+type Coordinates = record { x: nat32; y: nat32 };
+
+type LandNFT = record {
+  id: nat64;
+  name: text;
+  coordinates: Coordinates;
+  size: text;
+  image_data: vec nat8;
+  owner: principal;
+  timestamp: nat64;
+};
+
+type Listing = record {
+  land_id: nat64;
+  price: nat64;
+  seller: principal;
+  listed_at: nat64;
+};
+
+type ListingResult = variant { Ok; Err: text };
+
+service : {
+  // Basic land operations
+  mint_land: (text, Coordinates, text, vec nat8) -> (nat64);
+  get_all_land: () -> (vec LandNFT) query;
+  get_my_land: () -> (vec LandNFT) query;
+  
+  // Marketplace operations
+  list_land_for_sale: (nat64, nat64) -> (ListingResult);
+  remove_listing: (nat64) -> (ListingResult);
+  buy_land: (nat64) -> (ListingResult);
+  
+  // Marketplace queries
+  get_all_listings: () -> (vec Listing) query;
+  get_marketplace_listings: () -> (vec record { LandNFT; Listing }) query;
+  get_listing_by_id: (nat64) -> (opt record { LandNFT; Listing }) query;
+  get_my_listings: () -> (vec record { LandNFT; Listing }) query;
+}
+
+
+
