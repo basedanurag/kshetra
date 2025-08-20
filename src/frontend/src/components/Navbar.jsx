@@ -64,7 +64,7 @@ function Navbar({
           letterSpacing: '0.04em',
           textDecoration: 'none',
           marginRight: 40,
-          textShadow: '0 2px 8px #3b82f655',
+          textShadow: '0 2px 8px #03030355',
           transition: 'color 0.18s',
         }}
       >
