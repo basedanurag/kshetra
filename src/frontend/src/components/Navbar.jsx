@@ -51,7 +51,7 @@ function Navbar({
         borderBottom: "1.5px solid rgba(255,255,255,0.08)",
         minHeight: 72
       }}
-    >
+    > 
       <a
         href="#"
         className="navbar-brand"
@@ -59,13 +59,17 @@ function Navbar({
         style={{
           fontWeight: 800,
           fontFamily: 'Inter, DM Sans, sans-serif',
-          color: 'var(--accent-purple)',
           fontSize: '1.7rem',
           letterSpacing: '0.04em',
           textDecoration: 'none',
           marginRight: 40,
-          textShadow: '0 2px 8px #03030355',
-          transition: 'color 0.18s',
+
+          // ✅ adjusted gradient
+          background: 'linear-gradient(to right, #333, #aaa, #fff)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          color: 'transparent',
         }}
       >
         KSHETRA
@@ -182,7 +186,7 @@ function Navbar({
                     boxShadow: "0 0 8px #3b82f655"
                   }}>
                     {principal ? principal.slice(0, 8) + "..." + principal.slice(-4) : "-"}
-                    </span>
+                  </span>
                   {/* Logout button */}
                   <button
                     onClick={onLogout}

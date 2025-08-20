@@ -17,8 +17,8 @@ export default function TiltCard({ children, className = '', style = {}, ...prop
       style={{
         perspective: 800,
         borderRadius: 16,
-        boxShadow: '0 4px 32px #3b82f655, 0 1.5px 0 #3b82f6',
-        background: 'linear-gradient(135deg, #23233a 80%, #3b82f6 100%)',
+        boxShadow: '0 4px 32px #00000055, 0 1.5px 0 #ffffffff',
+        background: 'linear-gradient(135deg, #000000ff 80%, #ffffffff 100%)',
         transform: `rotateY(${tilt.x * 8}deg) rotateX(${-tilt.y * 8}deg) scale(1.02)`,
         transition: 'transform 0.18s cubic-bezier(.4,0,.2,1)',
         ...style
